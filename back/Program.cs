@@ -11,7 +11,7 @@ builder.Services.AddOpenApiDocument(config =>
     config.Title = "TodoAPI v1";
     config.Version = "v1";
 });
-var app = builder.Build();
+
 var app = builder.Build();
 
 app.MapGet("/todoitems", async (TodoDb db) =>
