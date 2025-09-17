@@ -8,7 +8,7 @@
             "name": "C#: back Debug",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/back/back.csproj"
+            "projectPath": "${workspaceFolder}/back/back.csproj",
         }
     ]
 }
