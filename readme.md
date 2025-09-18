@@ -18,3 +18,8 @@
 >     If any special instructions are needed to run the project, beyond npm install and restoring nuget packages, put them in a readme in the repository
 
 Based on https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-9.0&tabs=visual-studio-code
+
+### Notes
+
+* Does not render server-side [simple PWA]
+* Most of the code is boilerplate.
