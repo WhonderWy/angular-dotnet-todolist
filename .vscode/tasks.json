@@ -6,6 +6,7 @@
       "type": "npm",
       "script": "start",
       "isBackground": true,
+      "path": "front",
       "problemMatcher": {
         "owner": "typescript",
         "pattern": "$tsc",
@@ -24,6 +25,7 @@
       "type": "npm",
       "script": "test",
       "isBackground": true,
+      "path": "front",
       "problemMatcher": {
         "owner": "typescript",
         "pattern": "$tsc",
