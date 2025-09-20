@@ -7,7 +7,7 @@ import { Item } from './item';
 @Injectable({ providedIn: 'root' })
 export class TodoService {
   private http = inject(HttpClient);
-  private base = `${environment.apiBaseUrl}/`;
+  private base = `${environment.apiBaseUrl}/todoitems`;
 
   /** GET /todos/ */
   getAll(): Observable<Item[]> {

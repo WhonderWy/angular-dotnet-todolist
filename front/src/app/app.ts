@@ -43,9 +43,9 @@ export class App {
   }
 
   addItem(input: HTMLInputElement) {
-    const title = input.value.trim();
-    if (!title) return;
-    this.api.create(title).subscribe({
+    const name = input.value.trim();
+    if (!name) return;
+    this.api.create(name).subscribe({
       next: created => {
         this.todos.update(list => [created, ...list]);
         input.value = '';
