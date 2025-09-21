@@ -88,3 +88,5 @@ static async Task<IResult> DeleteTodo(int id, TodoDb db)
 
     return TypedResults.NotFound();
 }
+
+public partial class Program { }

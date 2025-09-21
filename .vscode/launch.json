@@ -5,30 +5,53 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C#: back Debug",
-            "type": "dotnet",
+            // Launch the built test DLL directly so the debugger is attached to the test process automatically.
+            "name": "Launch .NET Tests (run test DLL)",
+            "type": "coreclr",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/back/back.csproj",
+            "program": "dotnet",
+            "args": [
+                "exec",
+                "${workspaceFolder}/tests/bin/Debug/net9.0/back.dll"
+            ],
+            "cwd": "${workspaceFolder}/tests",
+            "preLaunchTask": "build: tests",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "justMyCode": true
         },
         {
-            "name": "ng serve",
-            "type": "chrome",
-            "request": "launch",
-            "preLaunchTask": "npm: start",
-            "pathMapping": {
-                "/": "${workspaceFolder}/front"
-            },
-            "url": "http://localhost:4200/"
+            // Fallback: attach to a running .NET process (pick it automatically if needed).
+            "name": "Attach to .NET Process (fallback)",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}",
+            "justMyCode": true
         },
         {
-            "name": "ng test",
+            // Debug Angular tests served by Karma: preLaunchTask runs Karma in watch/background,
+            // then Chrome opens the Karma debug.html so you can set breakpoints.
+            "name": "Debug Angular Tests (Karma + Chrome)",
             "type": "chrome",
             "request": "launch",
-            "preLaunchTask": "npm: test",
-            "pathMapping": {
-                "/": "${workspaceFolder}/front"
-            },
-            "url": "http://localhost:9876/debug.html"
+            "preLaunchTask": "npm: test (front - karma watch)",
+            "url": "http://localhost:9876/debug.html",
+            "webRoot": "${workspaceFolder}/front",
+            "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222"
+            ],
+            "sourceMaps": true,
+            "internalConsoleOptions": "neverOpen"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Debug All Tests (Angular + .NET)",
+            "configurations": [
+                "Debug Angular Tests (Karma + Chrome)",
+                "Launch .NET Tests (run test DLL)"
+            ]
         }
     ]
 }

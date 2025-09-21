@@ -39,6 +39,49 @@
           }
         }
       }
+    },
+    {
+      "label": "dotnet: test (tests)",
+      "type": "shell",
+      "command": "dotnet test \"${workspaceFolder}/tests\" --configuration Debug",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "build: tests",
+      "type": "shell",
+      "command": "dotnet build \"${workspaceFolder}/tests\" --configuration Debug",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "npm: test (front - karma watch)",
+      "type": "shell",
+      "command": "npm run test --prefix front -- --watch --no-single-run",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "custom",
+        "pattern": [
+          {
+            "regexp": ".+"
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".+",
+          "endsPattern": "Karma.*started|Karma v"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
     }
   ]
 }
