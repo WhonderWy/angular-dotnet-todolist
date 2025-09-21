@@ -69,5 +69,14 @@ export class App {
     });
   }
 
+  toggleComplete(item: Item) {
+    item.isCompleted = !item.isCompleted;
+    // optionally call service.update(item.id, item.name, item.isCompleted)
+  }
+
+  toggleExpand(item: any) {
+    item.expanded = !item.expanded;
+  }
+
   trackById = (_: number, item: Item) => item.id;
 }
