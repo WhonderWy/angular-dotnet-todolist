@@ -23,3 +23,4 @@ Based on https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?vie
 
 * Does not render server-side [simple PWA]
 * Most of the code is boilerplate.
+* I couldn't get tests working in the 8 hours or so I spent on this. Probably because I did things unconventionally.
